@@ -1,6 +1,7 @@
 import React from 'react'
 import './Cloudinary.css'
 import { assets } from '../../assets';
+import { config } from '../../conf';
 
 
 const Cloudinary = () => {

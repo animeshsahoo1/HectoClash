@@ -25,10 +25,10 @@ const Navbar = () => {
     });
 
   return (
-    <div>
+    <div className='nav-container'>
       <header>
       
-      <img src={assets.profile} class="logo"/>
+      <img src={assets.Logo} className="logo"/>
 
       
 

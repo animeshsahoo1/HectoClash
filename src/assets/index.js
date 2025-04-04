@@ -1,6 +1,8 @@
 import profile from './profile.png';
-import purpleRect from './purpleRect.png'
+import Logo from './Logo.png'
+import  symbols from './symbols.png'
+
 
 export const assets = {
-  profile,purpleRect
+  profile,Logo,symbols
 };
