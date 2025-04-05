@@ -1,0 +1,60 @@
+.container2 {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 14%;
+    height: 85%;
+    width: 99.5%;
+    border: 1px solid #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-container {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.room-input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.create-room-btn,
+.join-friend-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.create-room-btn {
+    background-color: #4CAF50;
+}
+
+.join-friend-btn {
+    background-color: #c506ff;
+}
+
+.join-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #07f9e9;
+    margin-bottom: 20px;
+}
+
+.join-title span {
+    font-weight: bold;
+    color: #007bff;
+}

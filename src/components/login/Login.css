@@ -1,5 +1,5 @@
 :root {
-    --main-color: #A3D95D;
+    --main-color: #9164f6;
     --text-color: #111111;
     --other-color: #323232;
     --second-color: #9e9e9e;
@@ -136,11 +136,12 @@ input:not(:placeholder-shown)~label {
 }
 
 .auth button {
-    color: #A3D95D;
+    color: #9164f6;
     border: none;
     background-color: transparent;
     font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .auth button:hover {
@@ -159,9 +160,10 @@ input:not(:placeholder-shown)~label {
     animation: fadeOut 7s forwards;
 }
 
-.AccCreate{
+.AccCreate {
     color: #07001f;
 }
-.writing{
+
+.writing {
     color: #07001f;
 }

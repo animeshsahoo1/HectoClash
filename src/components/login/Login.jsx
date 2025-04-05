@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { auth,db } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import "./Login.css";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [showContainer, setShowContainer] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     country: "",
@@ -15,7 +16,7 @@ const Login = () => {
   });
 
   const [message, setMessage] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // Handle Input Change
   const handleChange = (e) => {
@@ -26,6 +27,18 @@ const Login = () => {
   const showMessage = (msg) => {
     setMessage(msg);
     setTimeout(() => setMessage(""), 5000);
+  };
+
+  // Close Form
+  const handleClose = () => {
+    setShowContainer(false);
+    setFormData({
+      name: "",
+      country: "",
+      email: "",
+      password: "",
+    });
+    setMessage("");
   };
 
   // Sign Up Function
@@ -40,7 +53,7 @@ const Login = () => {
       localStorage.setItem("loggedUserId", user.uid);
 
       showMessage("Account Created, Redirecting...");
-      // setTimeout(() => navigate("/profile"), 2000);
+      setTimeout(() => navigate("/home"), 2000);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         showMessage("Email already exists");
@@ -72,9 +85,13 @@ const Login = () => {
   };
 
   return (
-    <div className="auth">
-      <div className="container" style={{ display: isSignUp ? "block" : "none" }}>
-        <h2 className="close" onClick={() => setIsSignUp(false)}>
+    <div className="auth" style={{ display: showContainer ? "block" : "none" }}>
+      {/* Sign Up Form */}
+      <div
+        className="container"
+        style={{ display: showContainer && isSignUp ? "block" : "none" }}
+      >
+        <h2 className="close" onClick={handleClose}>
           <i className="fas fa-times"></i>
         </h2>
 
@@ -83,22 +100,50 @@ const Login = () => {
         <form onSubmit={handleSignUp}>
           <div className="input-group">
             <i className="fas fa-user"></i>
-            <input type="text" name="name" placeholder="Name" required className="writing" onChange={handleChange} />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              className="writing"
+              onChange={handleChange}
+            />
             <label htmlFor="name">Name</label>
           </div>
           <div className="input-group">
             <i className="fas fa-globe"></i>
-            <input type="text" name="country" placeholder="Country" required className="writing" onChange={handleChange} />
+            <input
+              type="text"
+              name="country"
+              placeholder="Country"
+              required
+              className="writing"
+              onChange={handleChange}
+            />
             <label htmlFor="country">Country</label>
           </div>
           <div className="input-group">
             <i className="fas fa-envelope"></i>
-            <input type="email" name="email" placeholder="Email" required className="writing" onChange={handleChange} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              className="writing"
+              onChange={handleChange}
+            />
             <label htmlFor="email">Email</label>
           </div>
           <div className="input-group">
             <i className="fas fa-lock"></i>
-            <input type="password" name="password" placeholder="Password" required className="writing" onChange={handleChange} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              className="writing"
+              onChange={handleChange}
+            />
             <label htmlFor="password">Password</label>
           </div>
           <input type="submit" className="btn" value="Sign Up" />
@@ -110,9 +155,12 @@ const Login = () => {
         </div>
       </div>
 
-      {/* Login Form */}
-      <div className="container" style={{ display: isSignUp ? "none" : "block" }}>
-        <h2 className="close" onClick={() => setIsSignUp(true)}>
+      {/* Sign In Form */}
+      <div
+        className="container"
+        style={{ display: showContainer && !isSignUp ? "block" : "none" }}
+      >
+        <h2 className="close" onClick={handleClose}>
           <i className="fas fa-times"></i>
         </h2>
 
@@ -121,12 +169,26 @@ const Login = () => {
         <form onSubmit={handleSignIn}>
           <div className="input-group">
             <i className="fas fa-envelope"></i>
-            <input type="email" name="email" placeholder="Email" required className="writing" onChange={handleChange} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              className="writing"
+              onChange={handleChange}
+            />
             <label htmlFor="signInEmail">Email</label>
           </div>
           <div className="input-group">
             <i className="fas fa-lock"></i>
-            <input type="password" name="password" placeholder="Password" required className="writing" onChange={handleChange} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              className="writing"
+              onChange={handleChange}
+            />
             <label htmlFor="signInpassword">Password</label>
           </div>
           <input type="submit" className="btn" value="Sign In" />
