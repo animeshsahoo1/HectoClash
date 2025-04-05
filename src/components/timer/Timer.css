@@ -1,7 +1,7 @@
 .timer-container {
     position: relative;
-    width: 120px; 
-    height: 120px; 
+    width: 120px;
+    height: 120px;
 }
 
 .timer-svg {
@@ -10,7 +10,8 @@
 
 .timer-circle {
     fill: none;
-    stroke-width: 8; /* border size */
+    stroke-width: 8;
+    /* border size */
 }
 
 .timer-circle-bg {
@@ -18,10 +19,11 @@
 }
 
 @keyframes danger {
-    0%{
+    0% {
         stroke: #ff0000;
     }
-    100%{
+
+    100% {
         stroke: #ff793b;
     }
 }
@@ -29,10 +31,12 @@
 .timer-circle-progress {
     stroke: #FFD700;
     stroke-linecap: round;
-    stroke-dasharray: 314.1592653589793; /* Circumference of the circle (2 * Math.PI * r) for 60px radius */
+    stroke-dasharray: 314.1592653589793;
+    /* Circumference of the circle (2 * Math.PI * r) for 60px radius */
     stroke-dashoffset: 0;
 }
-.timer-circle-progress.danger{
+
+.timer-circle-progress.danger {
     animation: danger 0.8s infinite;
 }
 
@@ -45,12 +49,14 @@
 }
 
 .timer-number {
-    font-size: 30px; /* Adjusted for larger timer */
+    font-size: 30px;
+    /* Adjusted for larger timer */
     font-weight: 700;
-    color: #000;
+    color: #fff;
 }
 
 .timer-label {
-    font-size: 12px; /* Adjusted font size for "sec" */
+    font-size: 12px;
+    /* Adjusted font size for "sec" */
     color: #888;
 }

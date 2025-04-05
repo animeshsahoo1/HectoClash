@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import './Game.css';
 
 const Game = () => {
+    function generateRoomCode() {
+        return Math.floor(Math.random() * (100000 - 10000)) + 10000;
+    }
     const loggedUserId = localStorage.getItem('loggedUserId');
     const [roomId, setRoomId] = useState("");
     const navigate = useNavigate();
@@ -53,18 +56,21 @@ const Game = () => {
             alert("User not logged in.");
             return;
         }
-
+    
         try {
-            await set(ref(realtimeDB, `rooms/${loggedUserId}`), {
-                users: [loggedUserId]
+            const uniqueId = generateRoomCode();
+            await set(ref(realtimeDB, `rooms/${uniqueId}`), {
+                users: [loggedUserId],
+                createdAt: Date.now()
             });
-            alert("Room created successfully!");
-            navigate(`/games/${loggedUserId}`);
+            alert(`Room created successfully!, RoomId:${uniqueId}`);
+            navigate(`/games/${uniqueId}`);
         } catch (error) {
             console.error("Error creating room:", error);
             alert("Failed to create room.");
         }
     };
+    
 
     return (
         <div>

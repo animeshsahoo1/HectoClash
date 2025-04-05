@@ -1,0 +1,180 @@
+.container1 {
+    display: flex;
+    position: absolute;
+    top: 14%;
+    height: 85%;
+    width: 99.5%;
+    /* border: 1px solid #fff; */
+    justify-content: center;
+
+}
+
+
+#item_01 {
+    width: 11%;
+    height: 100%;
+    position: relative;
+    border-right: 3px solid #3d3d3d;
+}
+
+#item_02 {
+    width: 75%;
+    padding: 25px;
+    display: flex;
+    gap: 50px;
+    position: relative;
+}
+
+#item_03 {
+    width: 19%;
+    background-color: #3d3d3d;
+    border-radius: 15px;
+}
+
+.box {
+    border-radius: 20px;
+    width: 48%;
+    height: 52%;
+    font-size: 50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box div {
+    text-align: center;
+}
+
+.sidebar_btn {
+    /* border: 1px solid #fff; */
+    position: absolute;
+    height: 7%;
+    left: 10%;
+    width: 90%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 17px;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.5s ease;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.sidebar_btn:hover {
+    color: #bbbbbb;
+}
+
+#home {
+    top: 3%;
+}
+
+#profile {
+    top: 10%;
+}
+
+#leaderboard {
+    top: 17%;
+}
+
+#friends {
+    top: 24%;
+}
+
+#logout {
+    position: absolute;
+    height: 7%;
+    left: 15%;
+    width: 85%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 20px;
+    color: #ff0000;
+    bottom: 3%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#logout:hover {
+    color: #d00000;
+}
+
+#profile-card {
+    position: absolute;
+    width: 80%;
+    height: 35%;
+    left: 10%;
+    top: 5%;
+    border: 3px solid #c506ff;
+    border-radius: 20px;
+    background-color: #3d3d3d;
+}
+
+#profile-picture {
+    position: absolute;
+    left: 25%;
+    height: 80%;
+    top: 10%;
+    border-radius: 100px;
+}
+
+#edit-pfp {
+    position: absolute;
+    left: 42%;
+    height: 15%;
+    width: 3.5%;
+    top: 75%;
+    border-radius: 100px;
+    background-color: #c506ff;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+#edit-pfp:hover {
+    background-color: #a400d6;
+}
+
+#username {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#country {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+}
+
+#email-address {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+}
+
+#rating {
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#rating span {
+    color: #c506ff;
+}

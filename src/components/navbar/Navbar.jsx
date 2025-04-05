@@ -11,12 +11,18 @@ const Navbar = () => {
     // Reference the user's document in Firestore
     const userDocRef = doc(db, "users", loggedUserId);
     const [name, setName] = useState("")
+    const [rating, setRating] = useState("")
+    const [profilePic, setProfilePic] = useState("")
     getDoc(userDocRef)
         .then((docSnapshot) => {
             if (docSnapshot.exists()) {
                 const userData = docSnapshot.data();
                 const userName = userData.name;
+                const userRating = userData.rating;
+                const userProfilePic = userData.profilePic;
                 setName(userName);
+                setRating(userRating);
+                setProfilePic(userProfilePic);
 
             } else {
                 console.error("No document found for the logged user.");
@@ -33,10 +39,10 @@ const Navbar = () => {
                 <img src={assets.Logo} className="logo" onClick={() => { Navigate('/home') }} />
 
                 {loggedUserId && <div className="profile">
-                    <img src={assets.profile} className="profile-img" />
+                    <img src={profilePic || `${assets.profile}`} className="profile-img" />
                     <div className="name-rating">
                         {name && <p>{`${name}`}</p>}
-                        <p>Rating: 1600</p>
+                        <p>Rating: {rating}</p>
                     </div>
                 </div>}
             </header>

@@ -15,6 +15,9 @@ const Main = () => {
         localStorage.removeItem('loggedUserId');
         navigate("/");
     }
+    function profile() {
+        navigate("/profile");
+    }
 
 
     return (
@@ -23,7 +26,7 @@ const Main = () => {
             <div className="container1">
                 <div className="item" id='item_01'>
                     <div id='home' className='sidebar_btn'><i className="fa-solid fa-house"></i>&nbsp;Home</div>
-                    <div id='profile' className='sidebar_btn'><i className="fa-solid fa-user"></i>&nbsp;Profile</div>
+                    <div id='profile' className='sidebar_btn' onClick={profile}><i className="fa-solid fa-user"></i>&nbsp;Profile</div>
                     <div id='leaderboard' className='sidebar_btn'><i className="fa-solid fa-chart-simple"></i>&nbsp;Leaderboard</div>
                     <div id='friends' className='sidebar_btn'><i className="fa-solid fa-users"></i>&nbsp;Friends</div>
                     <div id='logout' onClick={logout}><i className="fa-solid fa-right-from-bracket"></i>&nbsp;Logout</div>

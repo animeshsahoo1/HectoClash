@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Main from './pages/main/Main'
 import Game from './pages/game/Game'
 import GameRoom from './pages/gameRoom/GameRoom'
+import Profile from './pages/profile/Profile'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/home' element={<Main />} />
         <Route path='/games' element={<Game />} />
         <Route path='/games/:gameId' element={<GameRoom />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
 
 
