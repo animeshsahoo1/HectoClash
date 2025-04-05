@@ -1,0 +1,56 @@
+.timer-container {
+    position: relative;
+    width: 120px; 
+    height: 120px; 
+}
+
+.timer-svg {
+    transform: rotate(-90deg);
+}
+
+.timer-circle {
+    fill: none;
+    stroke-width: 8; /* border size */
+}
+
+.timer-circle-bg {
+    stroke: #ccc;
+}
+
+@keyframes danger {
+    0%{
+        stroke: #ff0000;
+    }
+    100%{
+        stroke: #ff793b;
+    }
+}
+
+.timer-circle-progress {
+    stroke: #FFD700;
+    stroke-linecap: round;
+    stroke-dasharray: 314.1592653589793; /* Circumference of the circle (2 * Math.PI * r) for 60px radius */
+    stroke-dashoffset: 0;
+}
+.timer-circle-progress.danger{
+    animation: danger 0.8s infinite;
+}
+
+.timer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.timer-number {
+    font-size: 30px; /* Adjusted for larger timer */
+    font-weight: 700;
+    color: #000;
+}
+
+.timer-label {
+    font-size: 12px; /* Adjusted font size for "sec" */
+    color: #888;
+}

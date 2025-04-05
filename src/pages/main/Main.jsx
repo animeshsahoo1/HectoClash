@@ -38,7 +38,7 @@ const Main = () => {
 
 
                 </div>
-                <div className="item" id='item_03'>3</div>
+                <div className="item" id='item_03'></div>
             </div>
         </div>
     )

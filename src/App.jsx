@@ -5,6 +5,7 @@ import Landing from './pages/landing/landing'
 import { Route, Routes } from 'react-router-dom'
 import Main from './pages/main/Main'
 import Game from './pages/game/Game'
+import GameRoom from './pages/gameRoom/GameRoom'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route path='/home' element={<Main />} />
         <Route path='/games' element={<Game />} />
+        <Route path='/games/:gameId' element={<GameRoom />} />
       </Routes>
 
 

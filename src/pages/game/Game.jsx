@@ -3,13 +3,14 @@ import Navbar from '../../components/navbar/Navbar';
 import { realtimeDB } from '../../../firebase';
 import { ref, set, get, update } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-
 import './Game.css';
 
 const Game = () => {
     const loggedUserId = localStorage.getItem('loggedUserId');
     const [roomId, setRoomId] = useState("");
     const navigate = useNavigate();
+    // const usersRef = get()
+
     const handleOnChange = (e) => {
         setRoomId(e.target.value);
     };
@@ -32,7 +33,6 @@ const Game = () => {
             const data = snapshot.val();
             const users = data.users || [];
 
-            // Add the user only if not already in the room
             if (!users.includes(loggedUserId)) {
                 const updatedUsers = [...users, loggedUserId];
                 await update(roomRef, { users: updatedUsers });
@@ -41,20 +41,25 @@ const Game = () => {
                 alert("You are already in this room.");
             }
 
+            navigate(`/games/${roomId}`);
         } catch (error) {
             console.error("Error joining room:", error);
             alert("Failed to join room.");
         }
     };
 
-
     const handleCreateRoom = async () => {
+        if (!loggedUserId) {
+            alert("User not logged in.");
+            return;
+        }
+
         try {
-            // Create a room with the loggedUserId as roomId, and initial user array
             await set(ref(realtimeDB, `rooms/${loggedUserId}`), {
                 users: [loggedUserId]
             });
             alert("Room created successfully!");
+            navigate(`/games/${loggedUserId}`);
         } catch (error) {
             console.error("Error creating room:", error);
             alert("Failed to create room.");
@@ -78,8 +83,8 @@ const Game = () => {
                         value={roomId}
                         onChange={handleOnChange}
                     />
-                    <button className="create-room-btn" onClick={handleCreateRoom}>Create Room</button>
                     <button className="join-friend-btn" onClick={handleOnSubmit}>Join Friend</button>
+                    <button className="create-room-btn" onClick={handleCreateRoom}>Create Room</button>
                 </div>
             </div>
         </div>

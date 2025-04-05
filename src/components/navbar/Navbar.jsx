@@ -3,8 +3,10 @@ import './Navbar.css'
 import { assets } from '../../assets';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const Navigate = useNavigate()
     const loggedUserId = localStorage.getItem('loggedUserId');
     // Reference the user's document in Firestore
     const userDocRef = doc(db, "users", loggedUserId);
@@ -28,9 +30,7 @@ const Navbar = () => {
         <div className='nav-container'>
             <header>
 
-                <img src={assets.Logo} className="logo" />
-
-
+                <img src={assets.Logo} className="logo" onClick={() => { Navigate('/home') }} />
 
                 {loggedUserId && <div className="profile">
                     <img src={assets.profile} className="profile-img" />
